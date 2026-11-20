@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Trang cá nhân</title>
+   <script>
+  (() => {
+    const saved = localStorage.getItem("portfolio-theme");
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.dataset.theme = saved || (systemDark ? "dark" : "light");
+  })();
+   </script>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- 1. THẺ LIÊN KẾT FILE CSS (Giao diện) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="#" class="wordmark">
+      <span class="logo-mark">✳</span>Kei23<span class="wordmark-dot">.</span>
+    </a>
+    <nav class="navigation">
+      <a href="#about">Giới thiệu</a>
+      <a href="#projects">Dự án</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+    <div class="account-actions">
+  <button id="theme-toggle" class="theme-toggle" type="button"
+        aria-label="Chuyển chế độ sáng/tối"></button>
+  <button class="nav-cta" type="button" onclick="loginPortfolio()">
+    Đăng nhập
+  </button>
+
+  <button class="nav-cta" type="button" onclick="logoutPortfolio()">
+    Đăng xuất
+  </button>
+</div>
+  </header>
+
+  <main>
+    <section class="hero section-wrap">
+      <div class="hero-content">
+        <div class="availability">
+          <span class="status-dot"></span>
+          <span>Sẵn sàng cho cơ hội mới</span>
+        </div>
+        <p class="eyebrow">XIN CHÀO, MÌNH LÀ</p>
+        <h1>Kei<span class="accent">.</span> <span class="headline-light">Mình tạo dự án này chỉ để upload file mình làm thôi.</span></h1>
+        <p class="hero-description">
+          Thời gian rảnh thì hãy học code
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="button button-dark">Khám phá dự án <span>↘</span></a>
+          <a href="#about" class="text-link">Tìm hiểu thêm <span>↓</span></a>
+        </div>
+        <div class="hero-meta">
+          <span>📍 Thành phố của bạn</span>
+          <span class="meta-divider"></span>
+          <span>✦ Luôn tò mò, luôn sáng tạo</span>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-sun"></div>
+        <div class="floating-note note-top"><span class="note-icon">✨</span>Chào bạn!</div>
+        <div class="art-card">
+          <div class="art-card-top">
+            <span>HELLO, WORLD!</span>
+            <span>✳</span>
+          </div>
+          <div class="art-initials">YOUR<br>IDEA<span>.</span></div>
+          <div class="art-card-bottom">
+            <span>DESIGN · BUILD · CREATE</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div class="floating-note note-bottom"><span class="note-icon">✿</span>Đang biến ý tưởng thành hiện thực</div>
+        <span class="art-star star-one">✳</span>
+        <span class="art-star star-two">✦</span>
+      </div>
+
+      <div class="scroll-hint">
+        <span></span> CUỘN ĐỂ KHÁM PHÁ
+      </div>
+    </section>
+
+    <section id="about" class="about section-wrap">
+      <div class="section-label"><span>01 /</span> GIỚI THIỆU</div>
+      <div class="about-content">
+        <h2>Một chút <span>về mình.</span></h2>
+        <div class="about-details">
+          <p>
+            Mình là <strong>Kei</strong>, một người yêu thích sáng tạo và không ngừng học hỏi. Mình thích biến những ý tưởng thú vị thành sản phẩm hữu ích, đẹp mắt và dễ sử dụng.
+          </p>
+          <p>
+            Python, html, javascript, css, firebase tiếp theo có thể học c++ hoặc pascal
+          </p>
+          <div class="skill-list">
+            <span>Thiết kế</span>
+            <span>Phát triển web</span>
+            <span>Sáng tạo nội dung</span>
+            <span>Luôn học hỏi</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects section-wrap">
+      <div class="section-label"><span>02 /</span> TUYỂN TẬP</div>
+      <div class="projects-heading">
+        <div>
+          <h2>Một vài thứ <span>mình đã làm.</span></h2>
+          <p>Ý tưởng, thử nghiệm và những điều mình tự hào.</p>
+        </div>
+        <button id="open-modal" class="button button-dark add-project-button" type="button">＋ Thêm dự án</button>
+      </div>
+      <div id="project-grid" class="project-grid"></div>
+    </section>
+
+    <section id="contact" class="contact section-wrap">
+      <div class="section-label"><span>03 /</span> LIÊN HỆ</div>
+      <div class="contact-content">
+        <p class="eyebrow">CÓ Ý TƯỞNG HAY HO?</p>
+        <h2>Cùng nhau tạo <span>điều thú vị.</span></h2>
+        <p>Mình luôn sẵn lòng trò chuyện về ý tưởng, dự án hoặc một cơ hội mới.</p>
+        <a href="mailto:hello@example.com" class="button button-light">hello@example.com <span>↗</span></a>
+      </div>
+      <div class="contact-decoration" aria-hidden="true">✳</div>
+      <footer>
+        <div>© <span id="year"></span> Tên của bạn · Được làm bằng sự tò mò <span class="footer-heart">♥</span></div>
+        <div class="social-links">
+          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <dialog id="project-dialog" class="project-dialog">
+    <form id="project-form" class="project-form">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">THÊM VÀO TUYỂN TẬP</p>
+          <h2>Dự án mới<span class="accent">.</span></h2>
+        </div>
+        <button id="close-modal" class="close-button" type="button" aria-label="Đóng">×</button>
+      </div>
+
+      <label for="project-title">Tên dự án</label>
+      <input id="project-title" name="title" type="text" placeholder="Ví dụ: Ứng dụng ghi chú" required>
+
+      <label for="project-description">Mô tả ngắn</label>
+      <textarea id="project-description" name="description" rows="3" placeholder="Dự án này giải quyết vấn đề gì?" required></textarea>
+
+      <div class="form-row">
+        <div>
+          <label for="project-category">Lĩnh vực</label>
+          <input id="project-category" name="category" type="text" placeholder="Thiết kế / Web / App">
+        </div>
+        <div>
+          <label for="project-link">Đường dẫn dự án</label>
+          <input id="project-link" name="link" type="url" placeholder="https://...">
+        </div>
+      </div>
+
+      <label class="upload-area" for="project-image">
+        <span class="upload-icon">↥</span>
+        <span>
+          <strong>Chọn ảnh dự án</strong>
+          <small>PNG, JPG hoặc WebP (tối đa 8 MB)</small>
+        </span>
+        <input id="project-image" name="image" type="file" accept="image/*">
+      </label>
+      <div id="image-filename" class="image-filename"></div>
+
+      <button class="button button-dark submit-button" type="submit">Lưu dự án <span>↗</span></button>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- 2. THẺ LIÊN KẾT FILE JAVASCRIPT (Chức năng) -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
